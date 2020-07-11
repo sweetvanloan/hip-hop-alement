@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+
+.brand-logo {
+  font-family: 'Fondamento', cursive;
+}
+
+a {
+  color: #d86b00;
+}
+
+main {
+    font-family: 'Fondamento', cursive;
+}

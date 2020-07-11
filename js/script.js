@@ -1,5 +1,13 @@
 /*----- constants -----*/
-/*----- app's state (variables) -----*/
-/*----- cached element references -----*/
+const mainURL = "https://api.punkapi.com/v2/beers";
+
+/*----- variables -----*/
+
+
+/*----- element references -----*/
+
+
 /*----- event listeners -----*/
+
+
 /*----- functions -----*/
