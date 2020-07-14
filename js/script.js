@@ -2,11 +2,11 @@ console.log("this is the beginning of the code.");
 
 // ----- constants -----
 const mainURL = "https://api.punkapi.com/v2/beers"; //this may not be the root endpoint, commenting out to try root endpoint from documentation
-console.log("after MainURL is defined" + mainURL);
+console.log("after MainURL is defined " + mainURL);
 
 // ----- variables -----
-let beer, beerInfo;
-console.log("second check: beer and beeInfo have been defined");
+let beer, beerInfo, beerDetails;
+console.log("second check: beer and beeInfo have been set " + beer + " " + beerInfo);
 
 // ----- element references -----
 const $ulEl = $(".box");
@@ -50,57 +50,66 @@ function handleClick(event) {
 console.log("function handleClick has been defined")
 
 //below is a function call to make the program run as soon as it is called
-findBeer(mainURL);
-console.log("findBeer has been called" + findBeer)
+findBeer(mainURL); //took out the argument mainURL to see if that is the bug
+console.log("findBeer has been called " + findBeer.val) //findBeer is currently holding the value of undefined, which may be the big issue - investigating 
 
 //below is calling the data
-function findBeer(beerInfo, isBeer = false) {
-    const url = beerInfo || isBeer;
-    console.log("function findBeer fired" + beerInfo)
+function findBeer(beerInfo) {
+    const url = beerInfo; //I don't get what this even has to do with anything but taking it out causes an error rabbithole
+    console.log("function findBeer fired " + beerInfo)
     $.ajax(url)
         .then(function(data) {
-            if (!isBeer) {
-                beer = data.results;
-                render();
-            } else {
-                beerDetails = data;
-                render(true);
-            }
+            // 
+            console.log(data);
+            beerDetails = data;
+            generateHTML(beerDetails);
         }, function(error) {
             console.log("error is", error)
         });
 };
 
 // I will need a function to generate the HTML I will need, this function will creat dynamic html via jqeury
-function generateHTML() {
-    return beer.map(function(p) {
-        console.log("function GenerateHTML fired as well as the beer.map function within")
-        return `<li class="box">
-                <div>${p.name}
-                    <span  data-url="${p.beerInfo}">More</span>
-                </div>
-            </li>`
+function generateHTML(beers) {
+    console.log(beerDetails)
+    console.log("function GenerateHTML fired as well as the beer.map function within")
+    beerInfo = beerDetails.map(function(b) {
+        return `<ul class="box">
+                    <div>${b.name}
+                        <span  data-url="${b.beerInfo}">More</span>
+                    </div>
+                </ul>`
+
     });
+
+    render();
+
 }
 
 console.log("function generateHTML has been defined")
     // Will need a function that transfers html to the DOM, here I wil likely also be defining my dynamic elements 
-function render(isBeer = false) {
-    if (!isBeer) {
-        console.log("function render(beer) fired")
-        const html = generateHTML().join("");
-        $ulEl.html(html);
-    } else {
-        name.text("This beer is called..." + beerDetails.name + " ."); // name
-        tagline.text("The tagline is" + beerDetails.tagline + "."); //tagline
-        description.text("Description:" + beerDetails.description); //description
-        $imgEL.attr('src', beerDetails.image_url); //image_url
-        $imgEl.attr('alt', beerDetails.name); //this pulls the name of the beer for screenreaders/acessibility
-        $foodPairing.text("Good pairings:" + beerDetails.food_paring.join(" , ")); //food pairing is in an array needs .join most likely
+function render() {
+    // if (!isBeer) {
+    beerInfo.forEach(function(item) {
+        $ulEl.append(item);
+
+        console.log("next code is name.text in render");
+        name.text("This beer is called..." + item.name + " ."); // name
+        console.log("name in render");
+        tagline.text("The tagline is" + item.tagline + "."); //tagline
+        console.log("tagline in render");
+        description.text("Description:" + item.description); //description
+        console.log("descr in render");
+        $imgEL.attr('src', item.image_url); //image_url
+        $imgEl.attr('alt', item.name); //this pulls the name of the beer for screenreaders/acessibility
+        console.log("both img lines in render");
+        $foodPairing.text("Good pairings:" + item.food_paring.join(" , ")); //food pairing is in an array needs .join most likely
+        console.log("foodPairing in render");
         console.log("instance.open() should run now");
         instance.open(); //opens the modal
         console.log("instance.open() successfully fired");
-    }
+        generateHTML(item);
+    });
+
 };
 
 console.log("render has been defined")
