@@ -3,13 +3,17 @@
     margin: 0;
 }
 
+main {
+    background-color: #660033;
+    color: white;
+}
 
 .brand-logo {
-  font-family: 'Fondamento', cursive;
+    font-family: 'Fondamento', cursive;
 }
 
 a {
-  color: #d86b00;
+    color: #d86b00;
 }
 
 main {
