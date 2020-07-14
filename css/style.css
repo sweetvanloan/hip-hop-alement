@@ -1,11 +1,54 @@
+/* want a black or dark background, wood grain looking footer and header */
+
+
+/* specilize white font, find a suitable rugged font from googe fonts */
+
+
+/* want to soften some edges, turn them black to help with rugged wood effects */
+
 * {
-    box-sizing: border-box;
+    background-color: #660033;
+}
+
+html,
+body {
     margin: 0;
+    padding: 0;
+    height: 100%
+}
+
+#container {
+    /*   min-height: 100%
+    position: relative; */
+    height: 100%
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
 }
 
 main {
-    background-color: #660033;
     color: white;
+}
+
+button:active {
+    background-color: #003333;
+}
+
+button:hover {
+    background-color: #3300CC;
+}
+
+button {
+    background-color: #663333;
+}
+
+h1 {
+    margin-top: 50px;
+    text-decoration: underline;
 }
 
 .brand-logo {
