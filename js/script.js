@@ -74,8 +74,12 @@ function generateHTML(beers) {
     console.log("function GenerateHTML fired as well as the beer.map function within")
     beerInfo = beerDetails.map(function(b) {
         return `<ul class="box">
-                    <div>${b.name}
-                        <span  data-url="${b.beerInfo}">More</span>
+                    <div style="background:black; border:2px solid grey; padding-left:10px;">
+                    <h6 style="background:black;">${b.name}</h6>
+                    <h6 style="background:black;">"${b.tagline}"<h6>
+                    <div class="button" style="background:black;">
+                        <button data-url="${b.beerInfo}">Tell me more</button>
+                    </div>
                     </div>
                 </ul>`
 
@@ -90,24 +94,24 @@ console.log("function generateHTML has been defined")
 function render() {
     // if (!isBeer) {
     beerInfo.forEach(function(item) {
-        $ulEl.append(item);
+        return $ulEl.append(item);
 
-        console.log("next code is name.text in render");
-        name.text("This beer is called..." + item.name + " ."); // name
-        console.log("name in render");
-        tagline.text("The tagline is" + item.tagline + "."); //tagline
-        console.log("tagline in render");
-        description.text("Description:" + item.description); //description
-        console.log("descr in render");
-        $imgEL.attr('src', item.image_url); //image_url
-        $imgEl.attr('alt', item.name); //this pulls the name of the beer for screenreaders/acessibility
-        console.log("both img lines in render");
-        $foodPairing.text("Good pairings:" + item.food_paring.join(" , ")); //food pairing is in an array needs .join most likely
-        console.log("foodPairing in render");
-        console.log("instance.open() should run now");
-        instance.open(); //opens the modal
-        console.log("instance.open() successfully fired");
-        generateHTML(item);
+        // console.log("next code is name.text in render");
+        // name.text("This beer is called..." + item.name + " ."); // name
+        // console.log("name in render");
+        // tagline.text("The tagline is" + item.tagline + "."); //tagline
+        // console.log("tagline in render");
+        // description.text("Description:" + item.description); //description
+        // console.log("descr in render");
+        // $imgEL.attr('src', item.image_url); //image_url
+        // $imgEl.attr('alt', item.name); //this pulls the name of the beer for screenreaders/acessibility
+        // console.log("both img lines in render");
+        // $foodPairing.text("Good pairings:" + item.food_paring.join(" , ")); //food pairing is in an array needs .join most likely
+        // console.log("foodPairing in render");
+        // console.log("instance.open() should run now");
+        // instance.open(); //opens the modal
+        // console.log("instance.open() successfully fired");
+        // generateHTML(item);
     });
 
 };

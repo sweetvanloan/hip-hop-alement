@@ -18,8 +18,6 @@ body {
 }
 
 #container {
-    /*   min-height: 100%
-    position: relative; */
     height: 100%
 }
 
@@ -40,10 +38,12 @@ button:active {
 
 button:hover {
     background-color: #3300CC;
+    color: grey;
 }
 
 button {
     background-color: #663333;
+    color: white;
 }
 
 h1 {
@@ -52,7 +52,9 @@ h1 {
 }
 
 .brand-logo {
-    font-family: 'Fondamento', cursive;
+    font-family: 'Londrina Shadow', cursive;
+    color: #333366;
+    font-size: 70px;
 }
 
 a {
