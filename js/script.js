@@ -32,16 +32,8 @@ console.log("Event Listener $ulEl.on has been defined")
 
 // ----- functions -----
 // initialize modal 
-// $modal.modal();
-// const instance = M.Modal.getInstance($modal);
-// $(document).ready(function() {
-//     $('.modal').modal()
-// });
-// document.addEventListener('DOMContentLoaded', function() {
-//     var elems = document.querySelectorAll('.modal');
-//     var instances = M.Modal.init(elems, options);
-// });
-// The below code is to add amd event to the list made in HTML
+
+//event listener funtion
 function handleClick(event) {
     findBeer(event.target.dataset.url, true)
     console.log("function handleClick fired")
@@ -50,16 +42,15 @@ function handleClick(event) {
 console.log("function handleClick has been defined")
 
 //below is a function call to make the program run as soon as it is called
-findBeer(mainURL); //took out the argument mainURL to see if that is the bug
-console.log("findBeer has been called " + findBeer.val) //findBeer is currently holding the value of undefined, which may be the big issue - investigating 
+findBeer(mainURL);
+console.log("findBeer has been called " + findBeer.val);
 
 //below is calling the data
 function findBeer(beerInfo) {
-    const url = beerInfo; //I don't get what this even has to do with anything but taking it out causes an error rabbithole
+    const url = beerInfo;
     console.log("function findBeer fired " + beerInfo)
     $.ajax(url)
         .then(function(data) {
-            // 
             console.log(data);
             beerDetails = data;
             generateHTML(beerDetails);
@@ -74,11 +65,12 @@ function generateHTML(beers) {
     console.log("function GenerateHTML fired as well as the beer.map function within")
     beerInfo = beerDetails.map(function(b) {
         return `<ul class="box">
-                    <div style="background:black; border:2px solid grey; padding-left:10px;">
-                    <h6 style="background:black;">${b.name}</h6>
-                    <h6 style="background:black;">"${b.tagline}"<h6>
-                    <div class="button" style="background:black;">
-                        <button data-url="${b.beerInfo}">Tell me more</button>
+                    <div id="beerBox" >
+                    <h6 class="beerName">${b.name}</h6>
+                    <br>
+                    <p class="tagline">"${b.tagline}"<p>
+                    <button data-url="${b.beerInfo}">More</button>
+                    <div class="button" style="width:100%;">
                     </div>
                     </div>
                 </ul>`
@@ -90,9 +82,8 @@ function generateHTML(beers) {
 }
 
 console.log("function generateHTML has been defined")
-    // Will need a function that transfers html to the DOM, here I wil likely also be defining my dynamic elements 
+
 function render() {
-    // if (!isBeer) {
     beerInfo.forEach(function(item) {
         return $ulEl.append(item);
 
@@ -117,3 +108,4 @@ function render() {
 };
 
 console.log("render has been defined")
+console.log("this is the end of the code")

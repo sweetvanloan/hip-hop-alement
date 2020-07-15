@@ -6,15 +6,12 @@
 
 /* want to soften some edges, turn them black to help with rugged wood effects */
 
-* {
-    background-color: #660033;
-}
-
 html,
 body {
     margin: 0;
     padding: 0;
-    height: 100%
+    height: 100%;
+    background-color: #424242;
 }
 
 #container {
@@ -33,12 +30,12 @@ main {
 }
 
 button:active {
-    background-color: #003333;
+    background-color: orangered;
 }
 
 button:hover {
-    background-color: #3300CC;
-    color: grey;
+    background-color: #4E342E;
+    color: #CC9933;
 }
 
 button {
@@ -46,21 +43,48 @@ button {
     color: white;
 }
 
-h1 {
-    margin-top: 50px;
+.behold {
     text-decoration: underline;
+    font-size: 60px;
+    font-weight: bold;
+    color: goldenrod;
 }
 
 .brand-logo {
     font-family: 'Londrina Shadow', cursive;
-    color: #333366;
-    font-size: 70px;
-}
-
-a {
-    color: #d86b00;
 }
 
 main {
     font-family: 'Fondamento', cursive;
+}
+
+#beerBox {
+    /* background: black; */
+    background: linear-gradient(to bottom right, #CC9933, #CC6633, #CC9966);
+    text-align: center;
+    border: 3px solid #2C3E50;
+    border-radius: 70px 70px 70px 70px;
+    margin: 10px;
+}
+
+#beerBox:hover {
+    background: linear-gradient(to bottom left, #CC9933, #CC6633, #CC9966);
+}
+
+#beerName {
+    display: inline-block;
+    text-align: horizontal;
+    font-family: Verdana;
+    font-size: 40px;
+    color: black;
+    display: inline;
+    font-family: 'Londrina Shadow', cursive;
+}
+
+
+/* below affects only tje beer buttons in the JS generated list */
+
+#button {
+    width: 50px;
+    height: 30px;
 }
