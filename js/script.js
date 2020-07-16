@@ -41,7 +41,7 @@ function generateHTML(beers) {
         <div class="beerBox" id="beerBox-${beer.id}">
         <h6 class="beerName">${beer.name}</h6>
         <br>
-        <p id="hiddenInfo">The ${beer.name} beer was first brewed on ${beer.first_brewed}. A brewer tip, provided by ${beer.contributed_by} is: ${beer.brewers_tips}</p>
+        <p id="hiddenInfo">The ${beer.name} beer was first brewed on ${beer.first_brewed}. A brewer tip, provided by ${beer.contributed_by} is: <br> "${beer.brewers_tips}"</p>
         <br>
         <p class="tagline">"${beer.tagline}"<p>
         <button data-target="modal-${beer.id}" class="btn modal-trigger z-depth-5 brown darken-4">More</button>
