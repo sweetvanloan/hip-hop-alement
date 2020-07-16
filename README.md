@@ -9,26 +9,27 @@ Hip-Hops Ale-ments is a web app for gathering and displaying beer information to
 ## Data Structures
 
 ### List Data Example
-[
-    {
-    "id": 1,
+
+![alt "[ 
+    { 
+    "id": 1, 
     "name": "Buzz",
     ...
 },
 ...
-]
-
+]"](img/ss1.png)
 ### Detial Data Example
 
-{
-    "id": 1,
+
+![alt {
+    '"id": 1,
     "name": "Buzz",
     "tagline": "A Real Bitter Experience.",
     "first_brewed": "09/2007",
     "description": "A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.",
     "image_url": "https://images.punkapi.com/v2/keg.png",
     ...
-}
+}'](img/ss2.png) 
 
 ## User Stories doe Hip-Hops Ale-ment
 - AAU, I should be able to scroll through options of beers to view basic information.
@@ -37,7 +38,19 @@ Hip-Hops Ale-ments is a web app for gathering and displaying beer information to
 
 ## Wire Frame
 
+![alt "wire frame screenshot"](img/wireframe.png)
+
 ## Screenshots
+
+**Original View**
+![alt "site image"](img/Site%20SS.png)
+
+**Hover effects**
+![alt "hover effect at top of page"](img/css%20hover%20effect%20top.png)
+![alt "hover effects at bottom of page](img/CSS%20hover%20effect%20bottom.png)
+
+**Modal**
+![alt "show of modal popup with info"](img/modal%20show.png)
 
 ## Technnologies
 - HTML
