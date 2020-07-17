@@ -16,8 +16,17 @@ const firstBrewed = $("firstBrewed");
 // ----- event listeners -----
 $ulEl.on("click", "span", handleClick);
 
+// $(document).ready(function() {
+//     $("form").on("submit", handleGetData)
+// });
 
 // ----- functions -----
+
+// function handleGetData(evt) {
+//     evt.preventDefault();
+//     userInput = input.val()
+// };
+
 function handleClick(event) {
     findBeer(event.target.dataset.url, true)
 };
